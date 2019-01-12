@@ -23,9 +23,9 @@ var student={
     },
     updateStudent:function(item,s_gr_no,callback)
     {
-            return db.query('update student_tbl set s_roll_no=?,s_sname=?,s_fname=?,s_lname=?,s_gender=?,s_dob=?,s_email=?,s_address=?,s_class=?,s_div=?,s_contactno=?,s_category=?,s_bloodgroup=?,s_classteacher=?,s_username=?,s_password=? where s_gr_no=?',[item.s_roll_no,item.s_sname,item.s_fname,item.s_lname,item.s_gender,item.s_dob,
+            return db.query('update student_tbl set s_roll_no=?,s_sname=?,s_fname=?,s_lname=?,s_gender=?,s_dob=?,s_email=?,s_address=?,s_class=?,s_div=?,s_contactno=?,s_category=?,s_bloodgroup=?,s_classteacher=? where s_gr_no=?',[item.s_roll_no,item.s_sname,item.s_fname,item.s_lname,item.s_gender,item.s_dob,
                 item.s_email,item.s_address,item.s_class,item.s_div,item.s_contactno,item.s_category,
-                item.s_bloodgroup,item.s_classteacher,item.s_username,item.s_password,s_gr_no],callback);
+                item.s_bloodgroup,item.s_classteacher,s_gr_no],callback);
     },
     getStudentBygrno:function(s_gr_no,callback)
     {

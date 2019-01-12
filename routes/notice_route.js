@@ -1,23 +1,9 @@
-var user=require('../models/user_model');
+var notice=require('../models/notice_model');
 var express=require('express');
 var router=express.Router();
 
-router.get('',function(req,res,next){
-    user.getUser(function(err,rows){
-        if(err)
-        {
-           res.json(err);
-        }
-        else
-        {
-            res.json(rows);
-        }
-    });
-});
-
 router.post('',function(req,res,next){
-    console.log(req.body);
-    user.AddUser(req.body,function(err,rows){
+    notice.AddNotice(req.body,function(err,rows){
         if(err)
         {
            res.json(err);
@@ -29,5 +15,19 @@ router.post('',function(req,res,next){
     });
 });
 
+
+
+router.get('',function(req,res,next){
+    notice.getNotice(function(err,rows){
+        if(err)
+        {
+           res.json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
 
 module.exports=router;

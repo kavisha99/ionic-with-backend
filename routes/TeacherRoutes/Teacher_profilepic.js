@@ -1,4 +1,4 @@
-var teacher=require('../../models/teacher_models/teacherModel');
+var teacher=require('../../models/admin_teacher_models/teacherModel');
 var express=require('express');
 var router=express.Router();
 var multer=require('multer');
@@ -27,8 +27,8 @@ var storage = multer.diskStorage({
             }
         });
     });
-    router.get('/:t_id',function(req,res,next){
-        teacher.getTeacherByidforprofilepic(req.params.s_gr_no,function(err,rows){
+    router.get('/:t_number',function(req,res,next){
+        teacher.getTeacherByidforprofilepic(req.params.t_number,function(err,rows){
             if(err)
             {
                res.json(err);
@@ -43,5 +43,3 @@ var storage = multer.diskStorage({
 
 
 module.exports=router;
-
-          

@@ -1,4 +1,4 @@
-var teacher=require('../../models/teacher_models/teacherModel');
+var teacher=require('../../models/admin_teacher_models/teacherModel');
 var express=require('express');
 var router=express.Router();
 var multer=require('multer');
@@ -43,8 +43,8 @@ router.post('',upload.single('t_profilepic'),function(req,res,next){
 });
 
 
-    router.delete('/:t_id',function(req,res,next){
-teacher.deleteTeacher(req.params.t_id,function(err,rows){
+    router.delete('/:t_number',function(req,res,next){
+teacher.deleteTeacher(req.params.t_number,function(err,rows){
         if(err)
         {
            res.json(err);
@@ -72,8 +72,8 @@ router.delete('',function(req,res,next){
     });
 
 
-    router.put('/:t_id',function(req,res,next){
-  teacher.updateTeacher(req.body,req.params.t_id,function(err,rows){
+    router.put('/:t_number',function(req,res,next){
+  teacher.updateTeacher(req.body,req.params.t_number,function(err,rows){
         if(err)
         {
           res.json(err);
@@ -86,8 +86,8 @@ router.delete('',function(req,res,next){
     });
     
 
-    router.get('/:t_id',function(req,res,next){
-        teacher.getTeacherById(req.params.t_id,function(err,rows){
+    router.get('/:t_number',function(req,res,next){
+        teacher.getTeacherById(req.params.t_number,function(err,rows){
             if(err)
             {
                res.json(err);
