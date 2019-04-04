@@ -43,8 +43,8 @@ router.post('',upload.single('t_profilepic'),function(req,res,next){
 });
 
 
-    router.delete('/:t_number',function(req,res,next){
-teacher.deleteTeacher(req.params.t_number,function(err,rows){
+    router.delete('/:fk_u_id',function(req,res,next){
+teacher.deleteTeacher(req.params.fk_u_id,function(err,rows){
         if(err)
         {
            res.json(err);
@@ -72,8 +72,8 @@ router.delete('',function(req,res,next){
     });
 
 
-    router.put('/:t_number',function(req,res,next){
-  teacher.updateTeacher(req.body,req.params.t_number,function(err,rows){
+    router.put('/:fk_u_id',function(req,res,next){
+  teacher.updateTeacher(req.body,req.params.fk_u_id,function(err,rows){
         if(err)
         {
           res.json(err);
@@ -86,8 +86,8 @@ router.delete('',function(req,res,next){
     });
     
 
-    router.get('/:t_number',function(req,res,next){
-        teacher.getTeacherById(req.params.t_number,function(err,rows){
+    router.get('/:fk_u_id',function(req,res,next){
+        teacher.getTeacherByUserId(req.params.fk_u_id,function(err,rows){
             if(err)
             {
                res.json(err);

@@ -8,6 +8,7 @@ var login={
     {
         db.query('select * from user_tbl',callback);
     },
+    
  
  sendMail:function(demo,callback){   
 var transporter = nodemailer.createTransport({

@@ -43,9 +43,8 @@ router.post('',upload.single('s_profilepic'),function(req,res,next){
 });
 
 
-
-    router.delete('/:s_roll_no',function(req,res,next){
-student.deleteStudent(req.params.s_roll_no,function(err,rows){
+    router.delete('/:fk_u_id',function(req,res,next){
+student.deleteStudent(req.params.fk_u_id,function(err,rows){
         if(err)
         {
            res.json(err);
@@ -73,8 +72,8 @@ router.delete('',function(req,res,next){
     });
 
 
-    router.put('/:s_gr_no',function(req,res,next){
-  student.updateStudent(req.body,req.params.s_gr_no,function(err,rows){
+    router.put('/:fk_u_id',function(req,res,next){
+  student.updateStudent(req.body,req.params.fk_u_id,function(err,rows){
         if(err)
         {
           res.json(err);
@@ -87,8 +86,8 @@ router.delete('',function(req,res,next){
     });
     
 
-    router.get('/:s_gr_no',function(req,res,next){
-        student.getStudentBygrno(req.params.s_gr_no,function(err,rows){
+    router.get('/:fk_u_id',function(req,res,next){
+        student.getStudentByUserId(req.params.fk_u_id,function(err,rows){
             if(err)
             {
                res.json(err);

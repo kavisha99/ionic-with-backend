@@ -27,8 +27,8 @@ var storage = multer.diskStorage({
             }
         });
     });
-    router.get('/:t_number',function(req,res,next){
-        teacher.getTeacherByidforprofilepic(req.params.t_number,function(err,rows){
+    router.get('/:fk_u_id',function(req,res,next){
+        teacher.getTeacherByUseridforprofilepic(req.params.fk_u_id,function(err,rows){
             if(err)
             {
                res.json(err);

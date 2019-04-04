@@ -27,8 +27,8 @@ var storage = multer.diskStorage({
             }
         });
     });
-    router.get('/:s_gr_no',function(req,res,next){
-        student.getStudentBygrnoforprofilepic(req.params.s_gr_no,function(err,rows){
+    router.get('/:fk_u_id',function(req,res,next){
+        student.getStudentByUserIdforprofilepic(req.params.fk_u_id,function(err,rows){
             if(err)
             {
                res.json(err);
@@ -40,7 +40,19 @@ var storage = multer.diskStorage({
         });
     });
    
-
+    router.put('/:fk_u_id',function(req,res,next){
+        student.updatePassword(req.body,req.params.fk_u_id,function(err,rows){
+              if(err)
+              {
+                res.json(err);
+              }
+              else
+              {
+                res.json(rows);
+              }
+              });
+          });
+         
 
 module.exports=router;
 
